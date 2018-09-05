@@ -1,0 +1,139 @@
+html {
+    box-sizing: border-box;
+    font-family: "Lato", "Helvetica Neue", Arial, Helvetica, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: inherit; }
+
+body {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.25;
+}
+
+h3 {
+    margin-top: 0;
+    margin-bottom: .75rem;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: .75rem;
+}
+
+img { max-width: 100%; }
+
+.articles-list { padding: 0 15px; }
+
+.articles-list .article {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 30px;
+}
+
+.articles-list .article .image-container {
+    flex: 1;
+    order: 1;
+    padding-bottom: 15px;
+}
+.articles-list .article .text-container {
+    flex: 1;
+    order: 2;
+    max-height: 200px;
+}
+
+@media (min-width: 641px) {
+    .articles-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 30px;
+    }
+
+    .articles-list .article { padding-bottom: 0; }
+}
+
+@media (min-width: 1025px) {
+    .articles-list {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: minmax(30vw, 500px);
+        grid-auto-rows: minmax(30vw, 500px);
+        grid-gap: 30px;
+        margin: 0 auto;
+        max-width: 1200px;
+    }
+
+    .articles-list .article {
+        display: grid;
+        grid-template-rows: minmax(18vw, 300px) minmax(12vw, 200px);
+        grid-gap: 15px;
+    }
+
+    .articles-list .article:nth-child(1) { grid-column: span 2; }
+    .articles-list .article:nth-child(6) {
+        grid-column: span 2;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: minmax(30vw, 500px);
+    }
+
+    .articles-list .article .image-container {
+        grid-row: 1;
+        position: relative;
+        padding-bottom: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .articles-list .article:nth-child(6) .image-container {
+        padding-bottom: 0;
+        grid-column: 1;
+    }
+
+    .articles-list .article .text-container { max-height: none; }
+}
+
+.articles-list .article .image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.articles-list .article .text-container {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+}
+
+.articles-list .article .text-container::before {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 75px;
+    background: linear-gradient(to bottom, rgba(255,255,255, 0) 0%, #fff 100%);
+}
+
+.articles-list .article .link {
+    position: absolute;
+    z-index: 2;
+    left: 50%;
+    bottom: 15px;
+    padding: 10px 20px;
+    color: #fff;
+    text-decoration: none;
+    background-color: #f00;
+    opacity: 0;
+    transform: translate(-50%, calc(100% + 15px));
+    transition: transform 0.1s, opacity 0.1s;
+}
+
+.articles-list .article .link:hover { background-color: #c00; }
+
+@media (min-width: 1025px) {
+    .articles-list .article:hover .link {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+}
