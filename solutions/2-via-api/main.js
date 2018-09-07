@@ -7,7 +7,7 @@ const app = new Vue({
     },
     methods: {
         getPlaceholderImage: function(e) {
-            e.target.src = '/assets/images/placeholder.jpg';
+            e.target.src = 'assets/images/placeholder.jpg';
         }
     },
     created: async function() {

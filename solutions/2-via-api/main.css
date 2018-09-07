@@ -7,6 +7,7 @@ html {
 
 body {
     margin: 0;
+    padding: 30px 0;
     font-size: 1rem;
     line-height: 1.25;
 }
@@ -68,8 +69,8 @@ img { max-width: 100%; }
         grid-gap: 15px;
     }
 
-    .articles-list .article:nth-child(1) { grid-column: span 2; }
-    .articles-list .article:nth-child(6) {
+    .articles-list .article:nth-child(6n+1) { grid-column: span 2; }
+    .articles-list .article:nth-child(6n) {
         grid-column: span 2;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 500px;
@@ -83,7 +84,7 @@ img { max-width: 100%; }
         height: 100%;
     }
 
-    .articles-list .article:nth-child(6) .image-container {
+    .articles-list .article:nth-child(6n) .image-container {
         padding-bottom: 0;
         grid-column: 1;
     }

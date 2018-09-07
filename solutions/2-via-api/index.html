@@ -11,16 +11,16 @@
 <body>
     <main>
         <section id="app" class="articles-list">
-            <article class="article" v-for="{ title, description, weburl, primary_image_url } in items">
+            <article class="article" v-for="{ title, description, weburl, mediaurl } in items">
                 <div class="text-container">
                     <h3 class="title">{{title}}</h3>
                     <p class="description">
                         {{description}}
                     </p>
-                    <a class="link" :href="weburl" :title="title">Read More</a>
+                    <a class="link" :href="weburl" :title="title" v-if="weburl">Read More</a>
                 </div>
                 <div class="image-container">
-                    <img class="image" :src="primary_image_url" @error="getPlaceholderImage" :alt="title" />
+                    <img class="image" :src="mediaurl" @error="getPlaceholderImage" :alt="title" />
                 </div>
             </article>
         </section>
