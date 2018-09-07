@@ -25,7 +25,7 @@ const app = new Vue({
     },
     methods: {
         getPlaceholderImage: function(e) {
-            e.target.src = 'assets/images/placeholder.jpg';
+            e.target.src = 'assets/images/fallback.jpg';
         },
         setFilter: function(e, type) {
             document.querySelectorAll('.controls .btn').forEach(btn => btn.classList.remove('active'));

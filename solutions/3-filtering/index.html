@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Solution - Frontend Developer Assessment</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,900" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 </head>
@@ -13,7 +14,7 @@
 
         <section id="app" v-cloak>
             <menu class="controls">
-                <button class="btn" @click="setFilter($event, 'all')">All</button>
+                <button class="btn active" @click="setFilter($event, 'all')">All</button>
                 <button class="btn" @click="setFilter($event, 'listings')">Listings</button>
                 <button class="btn" @click="setFilter($event, 'events')">Events</button>
                 <button class="btn" @click="setFilter($event, 'offers')">Offers</button>
