@@ -1,4 +1,4 @@
-Simpleview Developer Assessment
+Simpleview CMS Developer Assessment
 ======
 Welcome to the Simpleview Developer Assessment.
 
