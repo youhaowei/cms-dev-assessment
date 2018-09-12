@@ -41,3 +41,7 @@ Some listings will have broken images, please use the provided fallback image as
 Build the component a final time with data from the API. Include listings, events, and offers data as well as a buttons that will enable a user to see all data, only listings data, only events data, or only offers data.
 
 Some listings/evensts/offers will have broken images, please use the provided fallback image as needed to ensure an image is always rendered.
+
+Submitting Your Assessment For Review
+------
+When you've completed the assessment, submit your work via a Pull Request to this repo. Your Pull Request should contain three (3) folders that contain your solution; one (1) for each part of the assessment.
