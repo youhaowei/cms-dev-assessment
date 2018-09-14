@@ -4,7 +4,7 @@ Welcome to the Simpleview Developer Assessment.
 
 The assessment is in three (3) parts that increase in complexity and scope. You may use any approach you feel comfortable with to complete each section. The assessment period is two (2) days; at the end of the assessment period turn in any and all work including any incomplete work for review.
 
-Those each part builds off the previous are expected to turn three (3) sets of soltuions; one for each part.
+Although each part builds off the previous, you are expected to turn in three (3) sets of soltuions; one for each part.
 
 Requirements
 ------
