@@ -4,12 +4,12 @@ import Article from './article';
 /**
  * Article with image and text split horizontally
  */
-let HorizontalArticle = (props) => {
+let TwoColumnArticle = (props) => {
     return (
         <div>
-            {/* when screen is large, do horizontal split */}
+            {/* when screen is large, do vertical split */}
             <div className="d-none d-lg-block d-lg-block">
-                <div className="article horizontal row">
+                <div className="article two-column row">
                     <div className='col-6'>
                     <div
                         style={{
@@ -33,4 +33,4 @@ let HorizontalArticle = (props) => {
     );
 };
 
-export default HorizontalArticle;
+export default TwoColumnArticle;

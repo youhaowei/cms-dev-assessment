@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import './App.css';
 import Article from './components/article';
 import loremIpsum from 'lorem-ipsum';
-import HorizontalArticle from './components/article-horizontal';
+import ArticleTwoColumns from './components/article-two-column';
 import './styles/app.scss';
 
 class App extends Component {
@@ -34,7 +35,7 @@ class App extends Component {
           </div>
             {articles}
             <div className="col-lg-6 col-md-4">
-              <HorizontalArticle {...props} />
+              <ArticleTwoColumns {...props} />
             </div>
           </div>
       </div>
