@@ -48,18 +48,18 @@ class ArticleList extends Component {
                 // large screen and the last one will have double column with vertical split
                 if (i % 6 === 0) {
                     return (
-                        <div className="col-lg-6 col-md-4">
-                            <Article {...article} key={i} />
+                        <div className="col-lg-6 col-md-4" key={i}>
+                            <Article {...article} />
                         </div>
                     )
                 } else if (i % 6 === 5) {
-                    return <div className="col-lg-6 col-md-4">
-                        <TwoColumnArticle {...article} key={i} />
+                    return <div className="col-lg-6 col-md-4" key={i}>
+                        <TwoColumnArticle {...article}  />
                     </div>
                 } else {
                     return (
-                        <div className="col-lg-3 col-md-4">
-                            <Article {...article} key={i} />
+                        <div className="col-lg-3 col-md-4" key={i}>
+                            <Article {...article} />
                         </div>
                     )
                 }
