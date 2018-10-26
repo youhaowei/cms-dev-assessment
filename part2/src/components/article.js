@@ -1,5 +1,6 @@
 import React from 'react';
 import '../styles/article.scss';
+import ImageWithFallback from './image-with-fallback';
 
 /**
  * Regular article display, with vertical layout
@@ -7,9 +8,7 @@ import '../styles/article.scss';
 let Article = (props) => {
     return (
         <div className="article vertical">
-            <div style={{
-                backgroundImage: `url(${props.image})`
-            }} className="cover" />
+            <ImageWithFallback image={props.image}/>
             <div className="content">
                 <h5 className="header">{props.header}</h5>
                 <p>{props.content}</p>

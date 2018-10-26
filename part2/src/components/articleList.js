@@ -1,21 +1,27 @@
 import React, {Component} from 'react';
 import Article from './article';
-import loremIpsum from 'lorem-ipsum';
+// import loremIpsum from 'lorem-ipsum';
 import TwoColumnArticle from './article-two-column';
 
 class ArticleList extends Component {
 
     constructor(props) {
         super(props);
+        let articles = [];
+
+        // insert fake data
+        /*
+
         let article = {
             header: loremIpsum({sentenceUpperBound: 5}),
             content: loremIpsum({paragraphLowerBound: 15, units: 'paragraphs'}),
             image: 'https://via.placeholder.com/500'
         }
-        let articles = [];
+
         for (let i = 0; i < 6; i++) {
             articles.push(article);
         }
+        */
         this.state = {
             articles
         }
@@ -30,8 +36,10 @@ class ArticleList extends Component {
             this.setState({
                 articles: data.articles.map(val => ({
                     ...val,
+                     // use description when content is not available
+                    content: val.content || val.description,
                     header: val.title,
-                    image: (val.urlToImage === null) ? 'assets/fallback.jpg': val.urlToImage
+                    image: val.urlToImage
                 }))
             })
         })

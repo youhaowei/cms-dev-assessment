@@ -1,5 +1,6 @@
 import React from 'react';
 import Article from './article';
+import ImageWithFallback from './image-with-fallback';
 
 /**
  * Article with image and text split horizontally
@@ -11,23 +12,18 @@ let TwoColumnArticle = (props) => {
             <div className="d-none d-lg-block d-lg-block">
                 <div className="article two-column row">
                     <div className='col-6'>
-                    <div
-                        style={{
-                            backgroundImage: `url(${props.image})`
-                        }}
-                        className="cover"
-                        />
-                        </div>
+                        <ImageWithFallback image={props.image}/>
+                    </div>
                     <div className="content col-sm-6">
-                <h5 className="header">{props.header}</h5>
-                <p>{props.content}</p>
-                <div className="read-more" />
-            </div>
+                        <h5 className="header">{props.header}</h5>
+                        <p>{props.content}</p>
+                        <div className="read-more"/>
+                    </div>
                 </div>
             </div>
             {/* if below large, use default article */}
             <div className="d-lg-none">
-                <Article {...props} />
+                <Article {...props}/>
             </div>
         </div>
     );
