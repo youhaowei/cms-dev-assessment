@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
-import Article from './components/article';
+import Article from './article';
 import loremIpsum from 'lorem-ipsum';
-import TwoColumnArticle from './components/article-two-column';
-import './styles/app.scss';
+import TwoColumnArticle from './article-two-column';
 
 class ArticleList extends Component {
 
@@ -22,6 +21,24 @@ class ArticleList extends Component {
         }
     }
 
+    componentDidMount() {
+        // fetching from news API
+        /*
+        fetch('https://newsapi.org/v2/top-headlines?country=us&apiKey=1df5d9c08ff84cc4a54c09b9179bd4ff').then(response => {
+            return response.json();
+        }).then(data => {
+            console.log(data);
+            this.setState({
+                articles: data.articles.map(val => ({
+                    ...val,
+                    header: val.title,
+                    image: val.urlToImage
+                }))
+            })
+        })
+        */
+    }
+
     render() {
         let articles = this
             .state
@@ -32,17 +49,17 @@ class ArticleList extends Component {
                 if (i % 6 === 0) {
                     return (
                         <div className="col-lg-6 col-md-4">
-                            <Article {...article} />
+                            <Article {...article} key={i} />
                         </div>
                     )
                 } else if (i % 6 === 5) {
                     return <div className="col-lg-6 col-md-4">
-                        <TwoColumnArticle {...article} />
+                        <TwoColumnArticle {...article} key={i} />
                     </div>
                 } else {
                     return (
                         <div className="col-lg-3 col-md-4">
-                            <Article {...article} />
+                            <Article {...article} key={i} />
                         </div>
                     )
                 }

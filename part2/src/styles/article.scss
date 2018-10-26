@@ -2,24 +2,19 @@
 
     margin-bottom: 1em;
     height: 500px;
-
-    &.vertical {
-        .cover {
-            height: 50%;
-        }
-
-        .content {
-            max-height: 50%;
-        }
+    cover: {
+        height: 50%;
+    }
+    content {
+        height: 50%;
     }
 
-    &.horizontal {
+    &.two-column {
         .cover {
             height: 100%;
         }
-
         .content {
-            max-height: 50%;
+            max-height: 100%;
         }
     }
 

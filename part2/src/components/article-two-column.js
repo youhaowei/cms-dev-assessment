@@ -9,7 +9,7 @@ let TwoColumnArticle = (props) => {
         <div>
             {/* when screen is large, do vertical split */}
             <div className="d-none d-lg-block d-lg-block">
-                <div className="article horizontal row">
+                <div className="article two-column row">
                     <div className='col-6'>
                     <div
                         style={{
