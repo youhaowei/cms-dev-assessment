@@ -5,6 +5,22 @@
 
 .article {
   margin-bottom: 1em;
+  height: 500px;
+}
+
+.article .cover {
+  background-position-y: center;
+  background-position-x: center;
+  background-size: cover;
+}
+
+.article.vertical .cover {
+  height: 50%;
+  
+}
+
+.article.horizontal .cover {
+  height: 100%;
 }
 
 .article .header {
@@ -16,8 +32,13 @@
   font-weight: 400
 }
 
-.article .content {
-  max-height: 200px;
+.article.horizontal .content {
+  max-height: 100%;
+  overflow: hidden;
+}
+
+.article.vertical .content {
+  max-height: 50%;
   overflow: hidden;
 }
 

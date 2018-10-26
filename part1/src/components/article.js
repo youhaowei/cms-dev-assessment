@@ -1,23 +1,21 @@
 import React from 'react';
-import loremIpsum from 'lorem-ipsum';
 
+/**
+ * Regular article display, with vertical layout
+ */
 let Article = (props) => {
     return (
-        < div className='col-lg-3 col-md-4 article' >
-            <img src='https://via.placeholder.com/500' alt='placeholder' className='img-fluid'></img>
-
+        <div className="article vertical">
+            <div style={{
+                backgroundImage: `url(${props.image})`
+            }} className="cover" />
             <div className="content">
-            <h5 className="header">{loremIpsum({
-                sentenceUpperBound: 5,
-            })}</h5>
-            <p>{loremIpsum({
-                    units: 'paragraphs',
-                    paragraphLowerBound: 15
-                })}</p>
-            <div class="read-more"></div>
+                <h5 className="header">{props.header}</h5>
+                <p>{props.content}</p>
+                <div className="read-more" />
             </div>
-        </div >
-    )
-}
+        </div>
+    );
+};
 
 export default Article;
