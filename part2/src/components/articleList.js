@@ -13,7 +13,7 @@ class ArticleList extends Component {
             image: 'https://via.placeholder.com/500'
         }
         let articles = [];
-        for (let i = 0; i < 8; i++) {
+        for (let i = 0; i < 6; i++) {
             articles.push(article);
         }
         this.state = {
@@ -23,7 +23,6 @@ class ArticleList extends Component {
 
     componentDidMount() {
         // fetching from news API
-        /*
         fetch('https://newsapi.org/v2/top-headlines?country=us&apiKey=1df5d9c08ff84cc4a54c09b9179bd4ff').then(response => {
             return response.json();
         }).then(data => {
@@ -32,11 +31,10 @@ class ArticleList extends Component {
                 articles: data.articles.map(val => ({
                     ...val,
                     header: val.title,
-                    image: val.urlToImage
+                    image: (val.urlToImage === null) ? 'assets/fallback.jpg': val.urlToImage
                 }))
             })
         })
-        */
     }
 
     render() {
