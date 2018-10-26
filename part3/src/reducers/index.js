@@ -6,6 +6,7 @@ const initialState = {
 }
 
 const reducer = (state = initialState, action) => {
+
     switch (action.type) {
         case ADD_ARTICLES:
             let newArticles = action.articles.map(article => {
@@ -14,9 +15,10 @@ const reducer = (state = initialState, action) => {
                     category: action.category
                 };
             })
+            console.log(newArticles);
             return {
                 ...state,
-                article: [...state.articles, ...newArticles]
+                articles: [...state.articles, ...newArticles]
             }
         case SET_FILTER:
             return {

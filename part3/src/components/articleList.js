@@ -2,86 +2,82 @@ import React, {Component} from 'react';
 import Article from './article';
 //import loremIpsum from 'lorem-ipsum';
 import TwoColumnArticle from './article-two-column';
+import {loadData} from '../apiClients';
+import { addArticles } from '../actions';
+import { connect } from 'react-redux';
+
+function mapStateToProps(state) {
+    return {
+        ...state
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        addArticles: (articles, category) => dispatch(addArticles(articles, category))
+    }
+}
 
 class ArticleList extends Component {
 
-    constructor(props) {
-        super(props);
-        let articles = [];
-
-        // insert fake data
-        /*
-
-        let article = {
-            header: loremIpsum({sentenceUpperBound: 5}),
-            content: loremIpsum({paragraphLowerBound: 15, units: 'paragraphs'}),
-            image: 'https://via.placeholder.com/500'
-        }
-
-        for (let i = 0; i < 6; i++) {
-            articles.push(article);
-        }
-        */
-        this.state = {
-            articles
-        }
-    }
-
     componentDidMount() {
 
-        let handleSimpleViewData = data => {
-            this.setState({
-                articles: data.data.map(val => ({
-                    header: val.title,
-                    content: val.description,
-                    image: val.mediaurl
-                }))
-            })
+        let handleSimpleViewData = (category) => {
+            // return data handler for that category
+            return (data) => {
+                console.log(data);
+                let articles = data
+                    .data
+                    .map(val => ({ header: val.title, content: val.description, image: val.mediaurl }))
+                
+                // send dispatch
+                this
+                    .props
+                    .addArticles(articles, category);
+            }
         }
 
-        let handleNewsData = data => {
-            this.setState({
-                articles: data.articles.map(val => ({
-                    ...val,
-                     // use description when content is not available
-                    content: val.content || val.description,
-                    header: val.title,
-                    image: val.urlToImage
-                }))
-            })
+        let loadDataByCategory = (category) => {
+            loadData(category).then(handleSimpleViewData(category));
         }
-        // fetching from news API
-        fetch('https://sv-reqres.now.sh/api/listings?per_page=20').then(response => {
-            return response.json();
-        }).then(handleSimpleViewData);
+
+        loadDataByCategory('listings');
+        loadDataByCategory('events');
+        loadDataByCategory('offers');
+        
     }
 
     render() {
-        let articles = this
-            .state
-            .articles
+
+        let filteredArticles = this.props.articles.filter(article => {
+            if (this.props.filter) {
+                return article.category === this.props.filter;
+            } else {
+                return true;
+            }
+        })
+        let articles = filteredArticles
             .map((article, i) => {
                 // the layout repeat after 6 articles the first one will have double column on
                 // large screen and the last one will have double column with vertical split
                 if (i % 6 === 0) {
                     return (
                         <div className="col-lg-6 col-md-4" key={i}>
-                            <Article {...article} />
+                            <Article {...article}/>
                         </div>
                     )
                 } else if (i % 6 === 5) {
                     return <div className="col-lg-6 col-md-4" key={i}>
-                        <TwoColumnArticle {...article}  />
+                        <TwoColumnArticle {...article}/>
                     </div>
                 } else {
                     return (
                         <div className="col-lg-3 col-md-4" key={i}>
-                            <Article {...article} />
+                            <Article {...article}/>
                         </div>
                     )
                 }
             });
-
 
         return (
             <div className="container App">
@@ -93,4 +89,4 @@ class ArticleList extends Component {
     }
 }
 
-export default ArticleList;
+export default connect(mapStateToProps, mapDispatchToProps)(ArticleList);
