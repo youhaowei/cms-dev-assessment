@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/article.scss';
 
 /**
  * Regular article display, with vertical layout

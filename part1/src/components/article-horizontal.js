@@ -7,14 +7,17 @@ import Article from './article';
 let HorizontalArticle = (props) => {
     return (
         <div>
+            {/* when screen is large, do horizontal split */}
             <div className="d-none d-lg-block d-lg-block">
                 <div className="article horizontal row">
+                    <div className='col-6'>
                     <div
                         style={{
                             backgroundImage: `url(${props.image})`
                         }}
-                        className="cover col-6"
-                    />
+                        className="cover"
+                        />
+                        </div>
                     <div className="content col-sm-6">
                 <h5 className="header">{props.header}</h5>
                 <p>{props.content}</p>

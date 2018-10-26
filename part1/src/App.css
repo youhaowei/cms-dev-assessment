@@ -34,11 +34,13 @@
 
 .article.horizontal .content {
   max-height: 100%;
-  overflow: hidden;
 }
 
 .article.vertical .content {
   max-height: 50%;
+}
+
+.article .content {
   overflow: hidden;
 }
 

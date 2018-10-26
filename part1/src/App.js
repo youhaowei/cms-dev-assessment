@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import './App.css';
 import Article from './components/article';
 import loremIpsum from 'lorem-ipsum';
 import HorizontalArticle from './components/article-horizontal';
+import './styles/app.scss';
 
 class App extends Component {
   render() {
