@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Article from './article';
-// import loremIpsum from 'lorem-ipsum';
+//import loremIpsum from 'lorem-ipsum';
 import TwoColumnArticle from './article-two-column';
 
 class ArticleList extends Component {
@@ -28,11 +28,18 @@ class ArticleList extends Component {
     }
 
     componentDidMount() {
-        // fetching from news API
-        fetch('https://newsapi.org/v2/top-headlines?country=us&apiKey=1df5d9c08ff84cc4a54c09b9179bd4ff').then(response => {
-            return response.json();
-        }).then(data => {
-            console.log(data);
+
+        let handleSimpleViewData = data => {
+            this.setState({
+                articles: data.data.map(val => ({
+                    header: val.title,
+                    content: val.description,
+                    image: val.mediaurl
+                }))
+            })
+        }
+
+        let handleNewsData = data => {
             this.setState({
                 articles: data.articles.map(val => ({
                     ...val,
@@ -42,7 +49,11 @@ class ArticleList extends Component {
                     image: val.urlToImage
                 }))
             })
-        })
+        }
+        // fetching from news API
+        fetch('https://sv-reqres.now.sh/api/listings?per_page=20').then(response => {
+            return response.json();
+        }).then(handleSimpleViewData);
     }
 
     render() {

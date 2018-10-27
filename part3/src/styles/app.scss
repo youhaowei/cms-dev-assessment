@@ -1,0 +1,23 @@
+// bootstrap overtide
+$grid-breakpoints: (
+  xs: 0,
+  sm: 400px,
+  md: 641px,
+  lg: 1025px,
+  xl: 1200px
+);
+
+$container-max-widths: (
+  sm: 400px,
+  md: 641px,
+  lg: 1025px,
+  xl: 1200px
+);
+
+@import "node_modules/bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Lato:400,900');
+
+body {
+  font-family: 'Lato', sans-serif;
+  margin-top: 50px;
+}
