@@ -28,7 +28,12 @@ class ArticleList extends Component {
                 console.log(data);
                 let articles = data
                     .data
-                    .map(val => ({ header: val.title, content: val.description, image: val.mediaurl }))
+                    .map(val => ({
+                        header: val.title,
+                        content: val.description,
+                        image: val.mediaurl,
+                        readMoreLink: val.weburl
+                    }))
                 
                 // send dispatch
                 this
@@ -80,11 +85,9 @@ class ArticleList extends Component {
             });
 
         return (
-            <div className="container App">
                 <div className="row">
                     {articles}
                 </div>
-            </div>
         );
     }
 }

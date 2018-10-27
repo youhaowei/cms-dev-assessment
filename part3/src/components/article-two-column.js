@@ -1,32 +1,37 @@
-import React from 'react';
+import React, {Component} from 'react';
 import Article from './article';
 import ImageWithFallback from './image-with-fallback';
+import ArticleContent from './article-content';
 
 /**
  * Article with image and text split horizontally
  */
-let TwoColumnArticle = (props) => {
-    return (
-        <div>
-            {/* when screen is large, do vertical split */}
-            <div className="d-none d-lg-block d-lg-block">
-                <div className="article two-column row">
-                    <div className='col-6'>
-                        <ImageWithFallback image={props.image}/>
-                    </div>
-                    <div className="content col-sm-6">
-                        <h5 className="header">{props.header}</h5>
-                        <p>{props.content}</p>
-                        <div className="read-more"/>
+class TwoColumnArticle extends Component {
+
+    render() {
+        let {image, header, content, readMoreLink} = this.props;
+        return (
+            <div>
+                {/* when screen is large, do vertical split */}
+                <div className="d-none d-lg-block d-lg-block">
+                    <div className="article two-column row">
+                        <div className='col-6'>
+                            <ImageWithFallback image={image}/>
+                        </div>
+                        <ArticleContent
+                            header={header}
+                            content={content}
+                            className='col-sm-6'
+                            readMoreLink={readMoreLink}/>
                     </div>
                 </div>
+                {/* if below large, use default article */}
+                <div className="d-lg-none">
+                    <Article {...this.props}/>
+                </div>
             </div>
-            {/* if below large, use default article */}
-            <div className="d-lg-none">
-                <Article {...props}/>
-            </div>
-        </div>
-    );
-};
+        );
+    }
+}
 
 export default TwoColumnArticle;

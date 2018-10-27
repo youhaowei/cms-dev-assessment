@@ -1,0 +1,19 @@
+.App .filters {
+
+    padding: 0.25em;
+
+    button {
+        margin-right: 1em;
+        text-transform: capitalize;
+        background-color: lightgray;
+        border-width: 5px;
+        border-style: double;
+
+        &.active {
+            background-color: darkmagenta;
+            color: white;
+            border-color: white;
+            
+        }
+    }
+}
