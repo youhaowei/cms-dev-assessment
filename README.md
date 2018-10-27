@@ -26,14 +26,14 @@ Small - 640px and below
 Assessments
 ------
 **Part 1 - Static**
-Build a static HTML and CSS implementation of the comped component.
+Build the comped component using dummy content.
 
 For text content, use Lorem Ipsum.
 
 For image content, use [placeholder.com](https://placeholder.com/)
 
 **Part 2 - REST-API**
-Build the component again, but instead of static, build this out using listings data returned from [our test API](https://sv-reqres.now.sh).
+Build the component again, but instead of using dummy content, build this out using listings data returned from [our test API](https://sv-reqres.now.sh).
 
 Some listings will have broken images, please use the provided fallback image as needed to ensure an image is always rendered.
 
